@@ -1,5 +1,6 @@
 
 import streamlit as st
+import numpy as np
 from xgboost import XGBClassifier
 
 # page cinfiguration
@@ -149,4 +150,16 @@ population_density = st.sidebar.number_input(
     step=10
 )
 
+# inputs preprocessing
+input_data = np.array([
+    temperature, humidity, pm25, no2, so2, co, proximity_industry, population_density
+]).reshape(1, -1)
 
+# image and button
+col1, col2, col3 = st.columns([1, 2, 1])
+with col2:
+    st.image(
+        "app/../resources/air_quality.jpg",
+        caption = "the bliss of pure air",
+        use_container_width = True
+    )
