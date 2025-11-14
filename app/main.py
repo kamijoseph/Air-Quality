@@ -174,3 +174,29 @@ with col1:
         caption = "the bliss of pure air",
         use_container_width = True
     )
+
+if predict_button:
+    pred_class = model.predict(input_data)
+    class_map = {
+        0: "Good",
+        1: "Hazardous",
+        2: "Moderate",
+        3: "Poor"
+    }
+
+    st.markdown("---")
+    st.subheader(f" Predicted Quality: **{class_map[pred_class]}**")
+
+    descriptions = {
+        "Good": "🌿 Air quality is clean and safe, posing no health risks.",
+        "Hazardous": "☠️ Pollution levels are extremely dangerous and require immediate avoidance.",
+        "Moderate": "😐 Air quality is acceptable but may affect sensitive individuals.",
+        "Poor": "⚠️ Pollution is high enough to cause discomfort and health concerns with prolonged exposure."
+    }
+
+    st.markdown("<div class='description-box'>" + descriptions[class_map[pred_class]] + "</div>", unsafe_allow_html=True)
+    st.success("Prediction complete! Brief description included above.")
+
+# footer
+st.markdown("---")
+st.caption("User Interface built in Streamlit modelling with xgboost")
