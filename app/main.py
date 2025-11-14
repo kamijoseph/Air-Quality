@@ -6,7 +6,7 @@ from xgboost import XGBClassifier
 # page cinfiguration
 st.set_page_config(
     page_title = "Air Quality Predictive System",
-    page_icon = "🏭",
+    page_icon = "🏭 ",
     layout = "wide",
     initial_sidebar_state = "expanded"
 )
@@ -83,17 +83,17 @@ temperature = st.sidebar.slider(
     "Temperature(°C)",
     min_value = -50.0,
     max_value = 100.0,
-    value = 25.0,
+    value = 29.8,
     step = 0.1
 )
 
 # humidity input
-humidity = st.sidebar.number_input(
+humidity = st.sidebar.slider(
     "Humidity (%)",
     min_value = 0.0,
     max_value = 200.0,
-    value = 50.0,
-    step = 10.0
+    value = 59.1,
+    step = 0.1
 )
 
 # PM2.5
@@ -101,25 +101,25 @@ pm25 = st.sidebar.number_input(
     "PM2.5 (µg/m³)",
     min_value = 0.0,
     max_value = 1000.0,
-    value = 40.0,
+    value = 5.2,
     step = 10.0
 )
 
 # no2
-no2 = st.sidebar.slider(
+no2 = st.sidebar.number_input(
     "NO₂ (µg/m³)",
     min_value = 0.0,
     max_value = 1000.0,
-    value = 40.0,
+    value = 18.9,
     step = 0.1
 )
 
 # so2
-so2 = st.sidebar.slider(
+so2 = st.sidebar.number_input(
     "SO₂ (µg/m³)",
     min_value = 0.0,
     max_value = 1000.0,
-    value = 60.0,
+    value = 9.2,
     step = 0.1
 )
 
@@ -128,7 +128,7 @@ co = st.sidebar.slider(
     "CO (mg/m³)",
     min_value = 0.0,
     max_value = 50.0,
-    value = 10.0,
+    value = 1.72,
     step = 0.1
 )
 
@@ -137,7 +137,7 @@ proximity_industry = st.sidebar.number_input(
     "Proximity to Industrial Areas (km)",
     min_value=0.0,
     max_value=50.0,
-    value=5.0,
+    value=6.3,
     step=0.1
 )
 
@@ -146,7 +146,7 @@ population_density = st.sidebar.number_input(
     "Population Density (people/km²)",
     min_value=0,
     max_value=100000,
-    value=1000,
+    value=319,
     step=10
 )
 
@@ -185,7 +185,7 @@ if predict_button:
     }
 
     st.markdown("---")
-    st.subheader(f" Predicted Quality: **{class_map[pred_class]}**")
+    st.subheader(f" Predicted Quality: **{class_map[pred_class[0]]}**")
 
     descriptions = {
         "Good": "🌿 Air quality is clean and safe, posing no health risks.",
@@ -194,8 +194,9 @@ if predict_button:
         "Poor": "⚠️ Pollution is high enough to cause discomfort and health concerns with prolonged exposure."
     }
 
-    st.markdown("<div class='description-box'>" + descriptions[class_map[pred_class]] + "</div>", unsafe_allow_html=True)
-    st.success("Prediction complete! Brief description included above.")
+    st.success("Prediction complete! Brief description below")
+    st.markdown("<div class='description-box'>" + descriptions[class_map[pred_class[0]]] + "</div>", unsafe_allow_html=True)
+    
 
 # footer
 st.markdown("---")
