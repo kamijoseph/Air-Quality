@@ -70,7 +70,7 @@ def load_xgb_model():
 model = load_xgb_model()
 
 # header
-st.markdown("<h1 class='title-text'>🏭 Personalized Health Recommendation System</h1>", unsafe_allow_html=True)
+st.markdown("<h1 class='title-text'>🏭 AIR QUALITY PREDICTION SYSTEM.</h1>", unsafe_allow_html=True)
 st.markdown("<p class='description-text'>This intelligent system predicts <b>AIR QUALITY</b> and provides air quality pollution severeness. Enter your DATA in the sidebar to begin.</p>", unsafe_allow_html=True)
 
 st.markdown("---")
@@ -156,8 +156,19 @@ input_data = np.array([
 ]).reshape(1, -1)
 
 # image and button
-col1, col2, col3 = st.columns([1, 2, 1])
+col1, col2 = st.columns([2, 1])
 with col2:
+    st.image(
+        "app/../resources/action.png",
+        caption = "good air, great health",
+        use_container_width=True,
+    )
+
+with col1:
+    predict_button = st.button("🌫 PREDICTIONS 🏭")
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
     st.image(
         "app/../resources/air_quality.jpg",
         caption = "the bliss of pure air",
