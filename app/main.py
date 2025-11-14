@@ -58,3 +58,95 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
+
+# loading the model
+@st.cache_resource
+def load_xgb_model():
+    model = XGBClassifier()
+    model.load_model("app/../resources/air_model.json")
+    return model
+
+model = load_xgb_model()
+
+# header
+st.markdown("<h1 class='title-text'>🏭 Personalized Health Recommendation System</h1>", unsafe_allow_html=True)
+st.markdown("<p class='description-text'>This intelligent system predicts <b>AIR QUALITY</b> and provides air quality pollution severeness. Enter your DATA in the sidebar to begin.</p>", unsafe_allow_html=True)
+
+st.markdown("---")
+
+# user inputs
+st.sidebar.header("🍃 Input the DATA")
+
+# temperature input
+temperature = st.sidebar.slider(
+    "Temperature(°C)",
+    min_value = -50.0,
+    max_value = 100.0,
+    value = 25.0,
+    step = 0.1
+)
+
+# humidity input
+humidity = st.sidebar.number_input(
+    "Humidity (%)",
+    min_value = 0.0,
+    max_value = 200.0,
+    value = 50.0,
+    step = 10.0
+)
+
+# PM2.5
+pm25 = st.sidebar.number_input(
+    "PM2.5 (µg/m³)",
+    min_value = 0.0,
+    max_value = 1000.0,
+    value = 40.0,
+    step = 10.0
+)
+
+# no2
+no2 = st.sidebar.slider(
+    "NO₂ (µg/m³)",
+    min_value = 0.0,
+    max_value = 1000.0,
+    value = 40.0,
+    step = 0.1
+)
+
+# so2
+so2 = st.sidebar.slider(
+    "SO₂ (µg/m³)",
+    min_value = 0.0,
+    max_value = 1000.0,
+    value = 60.0,
+    step = 0.1
+)
+
+# CO
+co = st.sidebar.slider(
+    "CO (mg/m³)",
+    min_value = 0.0,
+    max_value = 50.0,
+    value = 10.0,
+    step = 0.1
+)
+
+# proximity to an industry area
+proximity_industry = st.sidebar.number_input(
+    "Proximity to Industrial Areas (km)",
+    min_value=0.0,
+    max_value=50.0,
+    value=5.0,
+    step=0.1
+)
+
+# population density
+population_density = st.sidebar.number_input(
+    "Population Density (people/km²)",
+    min_value=0,
+    max_value=100000,
+    value=1000,
+    step=10
+)
+
+
