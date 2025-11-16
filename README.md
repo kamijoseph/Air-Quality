@@ -8,6 +8,14 @@ Dataset used:
 [https://www.kaggle.com/datasets/mujtabamatin/air-quality-and-pollution-assessment](https://www.kaggle.com/datasets/mujtabamatin/air-quality-and-pollution-assessment)
 
 ---
+## 🚀 Live Demo
+
+Experience the app in action here:  
+👉 [Personalized Health Recommendation System (Live Demo)](https://personalised-health-and-fitness.streamlit.app/)
+
+*(Click the link above to open the interactive web app.)*
+
+---
 
 ## **📌 Key Features**
 
@@ -128,7 +136,6 @@ The application features:
   * Short descriptive statement
   * Highlight box for interpretation
 
-![UI Preview](resources/action.png.png)
 
 ```
 
