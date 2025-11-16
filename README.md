@@ -128,12 +128,8 @@ The application features:
   * Short descriptive statement
   * Highlight box for interpretation
 
-Screenshots (optional if you upload assets):
+![UI Preview](resources/action.png.png)
 
-```
-/resources/
-    action.png
-    air_quality.jpg
 ```
 
 ---
