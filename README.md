@@ -11,7 +11,7 @@ Dataset used:
 ## 🚀 Live Demo
 
 Experience the app in action here:  
-👉 [Personalized Health Recommendation System (Live Demo)](https://personalised-health-and-fitness.streamlit.app/)
+👉 [Air Quality Predictive System (Live Demo)](https://air-quality-webapp.streamlit.app/)
 
 *(Click the link above to open the interactive web app.)*
 
